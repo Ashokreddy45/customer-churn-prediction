@@ -1,0 +1,16 @@
+# Tested together on Python 3.11/3.12.
+# NumPy is intentionally pinned to the 1.x ABI because several scientific
+# packages commonly installed by Anaconda can otherwise load incompatible
+# compiled extensions when NumPy 2.x is selected.
+streamlit==1.55.0
+pandas==2.2.2
+numpy==1.26.4
+scipy==1.13.1
+scikit-learn==1.5.1
+plotly==6.6.0
+joblib==1.4.2
+xgboost==3.2.0
+shap==0.49.1
+pytest==8.4.2
+fastapi==0.115.12
+uvicorn==0.34.0
