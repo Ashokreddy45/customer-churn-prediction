@@ -1,45 +1,66 @@
 # Customer Churn Intelligence Platform
 
-A production-style portfolio project that turns customer churn prediction into an interpretable retention decision system.
+A machine learning application for predicting customer churn, understanding customer risk, and evaluating potential retention actions.
 
-## What it demonstrates
-- End-to-end supervised ML
-- Leakage-safe preprocessing
+## Features
+
+- End-to-end customer churn prediction
+- Data cleaning and preprocessing
+- Leakage-safe machine learning pipelines
 - Cross-validation and held-out testing
-- Model benchmarking: Logistic Regression, Random Forest, Gradient Boosting, XGBoost
-- ROC-AUC, PR-AUC, F1, precision, recall and accuracy
-- Threshold optimization
-- SHAP local explanations
+- Model benchmarking:
+  - Logistic Regression
+  - Random Forest
+  - Gradient Boosting
+  - XGBoost
+- Model evaluation using:
+  - ROC-AUC
+  - PR-AUC
+  - F1 Score
+  - Precision
+  - Recall
+  - Accuracy
+- Probability threshold optimization
 - Customer risk segmentation
-- Business impact / retention economics
-- Streamlit analytics application
+- SHAP-based local explanations
+- Business impact and retention analysis
+- Interactive Streamlit dashboard
 - FastAPI prediction endpoint
 - Automated tests
 
-## Run locally
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python scripts/train.py
-streamlit run app.py
-```
+## Project Structure
 
-API:
-```bash
-uvicorn api:app --reload
-```
-
-Tests:
-```bash
-pytest -q
-```
-
-## Data
-The included `data/demo_telco_churn.csv` is synthetic and intended for immediate execution. To use the classic Telco Customer Churn dataset, place a compatible CSV at `data/telco_churn.csv` or upload one through the Streamlit sidebar.
-
-## Architecture
-`data → cleaning → preprocessing pipeline → CV model benchmark → final held-out evaluation → probability threshold → risk segmentation → SHAP explanation → business impact`
-
-## Admissions / portfolio positioning
-The project deliberately goes beyond “train a classifier.” It connects model quality with explainability and an actionable retention workflow. See `docs/PROJECT_REPORT.md` for a concise technical narrative.
+```text
+customer_churn_intelligence_platform/
+│
+├── app.py
+├── api.py
+├── requirements.txt
+├── README.md
+│
+├── data/
+│   └── demo_telco_churn.csv
+│
+├── src/
+│   └── churn/
+│       ├── business.py
+│       ├── data.py
+│       ├── evaluation.py
+│       ├── explainability.py
+│       ├── features.py
+│       └── models.py
+│
+├── scripts/
+│   └── train.py
+│
+├── tests/
+│   ├── test_business.py
+│   └── test_data.py
+│
+├── artifacts/
+├── docs/
+│   └── PROJECT_REPORT.md
+│
+├── run.sh
+├── train.sh
+└── Makefile
